@@ -1,0 +1,44 @@
+{
+    "schemaVersion": 1,
+    "id": "mobplayeranimator",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "sources": "https://github.com/Thelnfamous1/Mob-Player-Animator",
+        "issues": "https://github.com/Thelnfamous1/Mob-Player-Animator/issues"
+    },
+    "license": "${license}",
+    "icon": "assets/mobplayeranimator/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+          "me.Thelnfamous1.mobplayeranimator.MobPlayerAnimatorFabric"
+        ],
+        "client": [
+            "me.Thelnfamous1.mobplayeranimator.MobPlayerAnimatorFabricClient"
+        ],
+        "mixinsquared": [
+          "me.Thelnfamous1.mobplayeranimator.mixin.MobPlayerAnimatorMixinCanceller"
+        ]
+    },
+    "mixins": [
+        "${mod_id}.mixins.json",
+        "${mod_id}.fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14",
+        "fabric": "*",
+        "minecraft": "${minecraft_version}",
+        "java": ">=17",
+        "player-animator": ">=${player_anim_version_min}",
+        "cloth-config": ">=${cloth_config_version_min}"
+    },
+    "suggests": {
+        "entity_model_features": ">=${emf_version_min}"
+    }
+}
+  
