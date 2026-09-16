@@ -60,10 +60,8 @@ public abstract class HumanoidTwoLayerModelMixin<T extends AbstractHumanoidMonst
 
     @Inject(method = "setupAnim(Lfr/factionbedrock/aerialhell/Entity/Monster/AbstractHumanoidMonster;FFFFF)V", at = @At("TAIL"))
     private void post_setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
-        // Apply the animation pose to the base parts
         PlayerAnimatorHelper.setEmote(this, PlayerAnimatorHelper.getAnimation(entity));
 
-        // Sync outer layer (overlays) to follow the animated base parts
         this.head_overlay.copyFrom(this.head);
         this.body_overlay.copyFrom(this.body);
         this.leftArm_overlay.copyFrom(this.leftArm);
@@ -71,8 +69,6 @@ public abstract class HumanoidTwoLayerModelMixin<T extends AbstractHumanoidMonst
         this.leftLeg_overlay.copyFrom(this.leftLeg);
         this.rightLeg_overlay.copyFrom(this.rightLeg);
     }
-
-    // --- IMutableModel & IPlayerModel ---
 
     @Override
     public void setEmoteSupplier(SetableSupplier<AnimationProcessor> supplier) {
@@ -83,8 +79,6 @@ public abstract class HumanoidTwoLayerModelMixin<T extends AbstractHumanoidMonst
     public SetableSupplier<AnimationProcessor> getEmoteSupplier() {
         return this.mobplayeranimator$emoteSupplier;
     }
-
-    // --- FirstPersonTracker & HumanoidModelAccess ---
 
     @Override
     public void playerAnimator_prepForFirstPersonRender() {
@@ -106,12 +100,6 @@ public abstract class HumanoidTwoLayerModelMixin<T extends AbstractHumanoidMonst
         return this.body;
     }
 
-    /*
-     * In Aerial Hell's HumanoidTwoLayerModel:
-     * - leftArm is positioned at x = -5.0F (Entity's RIGHT side)
-     * - rightArm is positioned at x = +5.0F (Entity's LEFT side)
-     * We swap these getters to match vanilla coordinate expectations.
-     */
     @Override
     public ModelPart mobplayeranimator$getLeftArm() {
         return this.rightArm;

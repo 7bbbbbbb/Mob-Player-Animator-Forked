@@ -90,11 +90,8 @@ public abstract class ArmoredIllagerEntityModelMixin<T extends AbstractIllager> 
         PlayerAnimatorHelper.setDefaultPivot(this);
 
         if (PlayerAnimatorHelper.isAnimating(illager)) {
-            // 1. Head orientation
             this.head.yRot = netHeadYaw * ((float) Math.PI / 180F);
             this.head.xRot = headPitch * ((float) Math.PI / 180F);
-
-            // 2. Leg movement / riding posture
             if (this.riding) {
                 this.rightLeg.xRot = -1.4137167F;
                 this.rightLeg.yRot = ((float) Math.PI / 10F);
@@ -111,21 +108,17 @@ public abstract class ArmoredIllagerEntityModelMixin<T extends AbstractIllager> 
                 this.leftLeg.zRot = 0.0F;
             }
 
-            // 3. Ensure individual arms and shoulder pads are visible rather than crossed arms
             this.arms.visible = false;
             this.leftArm.visible = true;
             this.rightArm.visible = true;
             this.leftShoulderpad.visible = true;
             this.rightShoulderpad.visible = true;
 
-            // 4. Apply custom emote animation
             PlayerAnimatorHelper.setEmote(this, PlayerAnimatorHelper.getAnimation(illager));
 
-            // 5. Synchronize shoulder pads to arms so armor moves dynamically with arm emotes
             this.rightShoulderpad.copyFrom(this.rightArm);
             this.leftShoulderpad.copyFrom(this.leftArm);
 
-            // 6. Cancel default setupAnim execution
             ci.cancel();
         }
     }
