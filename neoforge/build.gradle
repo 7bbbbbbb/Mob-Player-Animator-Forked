@@ -73,7 +73,6 @@ dependencies {
     compileOnly("maven.modrinth:spell-engine:RdOwCOuc")
     compileOnly("maven.modrinth:illager-invasion:9bEpNrvK")
     compileOnly("maven.modrinth:aerial-hell:zsNzfOjm")
-    compileOnly("maven.modrinth:entity-player-compat:9hF4jcLF")
     /*
      runtimeOnly fg.deobf("curse.maven:all-bark-all-bite-833755:4817227")
      runtimeOnly fg.deobf("maven.modrinth:serious-player-animations:${project.spa_version}-forge")

@@ -20,6 +20,12 @@ public class HumanoidBodyPose {
         this.rightLegPose = rightLegPose;
     }
 
+    // Resets only the arms. Used for illagers, since they're prone to break.
+    public void poseArms(HumanoidModelAccess modelAccess){
+        modelAccess.mobplayeranimator$getLeftArm().loadPose(this.leftArmPose);
+        modelAccess.mobplayeranimator$getRightArm().loadPose(this.rightArmPose);
+    }
+
     public void pose(HumanoidModelAccess modelAccess){
         modelAccess.mobplayeranimator$getHead().loadPose(this.headPose);
         modelAccess.mobplayeranimator$getBody().loadPose(this.bodyPose);

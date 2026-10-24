@@ -38,7 +38,6 @@ dependencies {
     modCompileOnly("maven.modrinth:spell-engine:RdOwCOuc")
     modCompileOnly("maven.modrinth:illager-invasion:9bEpNrvK")
     modCompileOnly("maven.modrinth:aerial-hell:zsNzfOjm")
-    modCompileOnly("maven.modrinth:entity-player-compat:9hF4jcLF")
 }
 
 loom {

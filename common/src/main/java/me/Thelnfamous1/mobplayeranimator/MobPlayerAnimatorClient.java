@@ -1,5 +1,6 @@
 package me.Thelnfamous1.mobplayeranimator;
 
+import me.Thelnfamous1.mobplayeranimator.compat.EMFCompat;
 import me.Thelnfamous1.mobplayeranimator.config.ClientConfigHelper;
 import me.Thelnfamous1.mobplayeranimator.config.MPAClientConfig;
 import me.Thelnfamous1.mobplayeranimator.config.MPAClientConfigWrapper;
@@ -8,22 +9,17 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 
 public class MobPlayerAnimatorClient {
     private static MPAClientConfig clientConfig;
     private static ClientConfigHelper clientConfigHelper;
     private static boolean emfLoaded;
-    private static boolean epcLoaded;
 
     public static void init() {
         if(Services.PLATFORM.isModLoaded("entity_model_features")){
             emfLoaded = true;
-        }
-        if(Services.PLATFORM.isModLoaded("entity_player_compat")){
-            epcLoaded = true;
+            EMFCompat.registerVariables();
         }
 
 
@@ -56,12 +52,5 @@ public class MobPlayerAnimatorClient {
 
     public static boolean isEMFLoaded() {
         return emfLoaded;
-    }
-    public static boolean isEPCLoaded() {
-        return epcLoaded;
-    }
-    public static Component getMissingCompatMessage() {
-        return Component.translatable("message.mobplayeranimator.epc_missing")
-                .withStyle(ChatFormatting.RED);
     }
 }

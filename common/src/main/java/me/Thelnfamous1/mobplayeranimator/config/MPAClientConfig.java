@@ -31,71 +31,7 @@ public class MPAClientConfig implements ConfigData {
             Refer to the wiki for formatting instructions: https://github.com/Thelnfamous1/Mob-Player-Animator/wiki/EMF-Model-Modifiers. \n
             Use a JSON validator such as https://jsonlint.com/ to ensure your JSON strings are correct.
             """ )
-    public LinkedHashMap<String, String> emf_model_modifiers = new LinkedHashMap<>() {
-        {
-            this.put("minecraft:vindicator", MPAModelModifier.CODEC
-                    .encodeStart(
-                            JsonOps.INSTANCE,
-                            MPAModelModifier.builder()
-                                    .withPartModifier(MPAPartPath.of("left_leg#EMF_left_leg"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.LEFT_LEG)
-                                            .withOffsetPos(KeyframeAnimations.posVec(0, -12, 0))
-                                            .build())
-                                    .withPartModifier(MPAPartPath.of("right_leg#EMF_right_leg"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.RIGHT_LEG)
-                                            .withOffsetPos(KeyframeAnimations.posVec(0, -12, 0))
-                                            .build())
-                                    .withPartModifier(MPAPartPath.of("left_arm"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.LEFT_ARM)
-                                            .withVisibility(true)
-                                            .build())
-                                    .withPartModifier(MPAPartPath.of("right_arm"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.RIGHT_ARM)
-                                            .withVisibility(true)
-                                            .build())
-                                    .withPartModifier(MPAPartPath.of("body#EMF_body#EMF_arms_rotation"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.LEFT_ARM, MPABodyPart.RIGHT_ARM)
-                                            .withVisibility(false)
-                                            .build())
-                                    .build()
-                    )
-                    .result().get().toString());
-            // Apparently It Takes A Pillage's Legioner uses the Pillager's Model Layer
-            // Fresh Animations ends up animating it just like a Pillager, and when animating a Player Animator animation, its legs would disappear
-            // This means if the Pillager were to somehow use melee AI, it would have the same issue with its legs
-            // To mitigate this for both, we make part modifiers for each of their legs that shifts them down by 12 pixels
-            this.put("minecraft:pillager", MPAModelModifier.CODEC
-                    .encodeStart(
-                            JsonOps.INSTANCE,
-                            MPAModelModifier.builder()
-                                    .withPartModifier(MPAPartPath.of("left_leg#EMF_left_leg"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.LEFT_LEG)
-                                            .withOffsetPos(KeyframeAnimations.posVec(0, -12, 0))
-                                            .build())
-                                    .withPartModifier(MPAPartPath.of("right_leg#EMF_right_leg"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.RIGHT_LEG)
-                                            .withOffsetPos(KeyframeAnimations.posVec(0, -12, 0))
-                                            .build())
-                                    .build()
-                    )
-                    .result().get().toString());
-            this.put("takesapillage:legioner", MPAModelModifier.CODEC
-                    .encodeStart(
-                            JsonOps.INSTANCE,
-                            MPAModelModifier.builder()
-                                    .withPartModifier(MPAPartPath.of("left_leg#EMF_left_leg"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.LEFT_LEG)
-                                            .withOffsetPos(KeyframeAnimations.posVec(0, -12, 0))
-                                            .build())
-                                    .withPartModifier(MPAPartPath.of("right_leg#EMF_right_leg"), MPAPartModifier.builder()
-                                            .withAnimatedGroup(MPABodyPart.RIGHT_LEG)
-                                            .withOffsetPos(KeyframeAnimations.posVec(0, -12, 0))
-                                            .build())
-                                    .build()
-                    )
-                    .result().get().toString());
-        }
-    };
+    public LinkedHashMap<String, String> emf_model_modifiers = new LinkedHashMap<>() {};
     @ConfigEntry.Gui.Tooltip
     public boolean guess_emf_part_modifier_animated_groups = true;
 

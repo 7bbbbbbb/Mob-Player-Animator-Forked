@@ -33,7 +33,6 @@ dependencies {
     implementation("maven.modrinth:mob-ai-tweaks:GkSAJ4i8")
     implementation("maven.modrinth:illager-invasion:9bEpNrvK")
     implementation("maven.modrinth:aerial-hell:zsNzfOjm")
-    implementation("maven.modrinth:entity-player-compat:9hF4jcLF")
 }
 
 configurations {

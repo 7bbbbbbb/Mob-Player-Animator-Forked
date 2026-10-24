@@ -11,6 +11,5 @@
   "text.autoconfig.mobplayeranimator.option.client.emf_force_vanilla_models" : "EMF Force Vanilla Models",
   "text.autoconfig.mobplayeranimator.option.client.emf_force_vanilla_models.@Tooltip" : "For these entities, force EMF to use their vanilla model instead of halting their animations when a Player Animator animation is active.",
   "text.autoconfig.mobplayeranimator.option.client.guess_emf_part_modifier_animated_groups" : "Guess EMF Part Modifier Animation Groups",
-  "text.autoconfig.mobplayeranimator.option.client.guess_emf_part_modifier_animated_groups.@Tooltip" : "When an animation group is not specified for an EMF Part Modifier, allow the internal system to guess the group for it.",
-  "message.mobplayeranimator.epc_missing" : "[Mob Player Animator] Entity Model Features is installed, but 'Entity Player Compat' is missing! Please install it for proper animation compatibility."
+  "text.autoconfig.mobplayeranimator.option.client.guess_emf_part_modifier_animated_groups.@Tooltip" : "When an animation group is not specified for an EMF Part Modifier, allow the internal system to guess the group for it."
 }
